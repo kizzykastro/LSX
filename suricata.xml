@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:device-extension xmlns:ns2="event_parsing/device_extension">
+    <pattern id="EventName">&quot;signature\_id\&quot;\:(\d{1,9})\,\&quot;</pattern>
+    <pattern id="EventCategory">&quot;category\&quot;\:\&quot;(\D*)\&quot;\,</pattern>
+    <pattern id="SourceIp">&quot;src\_ip\&quot;\:\&quot;(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})</pattern>
+    <pattern id="SourcePort">&quot;src\_port\&quot;\:(\d*)\,\&quot;</pattern>
+    <pattern id="DestinationIp">&quot;dest\_ip\&quot;\:\&quot;(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})</pattern>
+    <pattern id="DestinationPort">&quot;dest\_port\&quot;\:(\d*)\,\&quot;</pattern>
+    <pattern id="Protocol">,\&quot;proto\&quot;\:&quot;(\w{1,6})\&quot;</pattern>
+    <pattern id="DevicetimeParser">&quot;timestamp&quot;\:\&quot;(\d{4}\-\d{2}\-\d{2}\T\d{2}\:\d{2}\:\d{2})\.</pattern>
+    <match-group description="Snort Open Source IDS" device-type-id-override="10" order="1">
+        <matcher order="1" capture-group="1" pattern-id="EventName" field="EventName"/>
+        <matcher order="1" capture-group="1" pattern-id="EventCategory" field="EventCategory"/>
+        <matcher order="1" capture-group="1" pattern-id="SourceIp" field="SourceIp"/>
+        <matcher order="1" capture-group="1" pattern-id="SourcePort" field="SourcePort"/>
+        <matcher order="1" capture-group="1" pattern-id="Protocol" field="Protocol"/>
+        <matcher order="1" capture-group="1" pattern-id="DestinationIp" field="DestinationIp"/>
+        <matcher ext-data="yyyy/MM/ddTHH:mm:ss" order="1" capture-group="1" pattern-id="DevicetimeParser" field="DeviceTime"/>
+        <matcher order="1" capture-group="1" pattern-id="DestinationPort" field="DestinationPort"/>
+        <event-match-multiple device-event-category="Snort Open Source IDS" capture-group-index="1" pattern-id="EventName"/>
+    </match-group>
+</ns2:device-extension>
