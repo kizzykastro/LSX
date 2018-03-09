@@ -1,0 +1,2 @@
+# LSX
+QRadar LSX files
