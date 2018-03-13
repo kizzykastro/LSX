@@ -29,4 +29,4 @@
     </match-group>
 </ns2:device-extension>
 
-# Add an event mapping of Linux Firewall to get the vents classified properly
+<!-- Add an event mapping of Linux Firewall to get the vents classified properly -->
