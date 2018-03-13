@@ -28,3 +28,5 @@
         <event-match-multiple force-qidmap-lookup-on-fixup="true" send-identity="UseDSMResults" pattern-id="EventName-Pattern-1"/>
     </match-group>
 </ns2:device-extension>
+
+# Add an event mapping of Linux Firewall to get the vents classified properly
